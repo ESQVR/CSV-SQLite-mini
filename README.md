@@ -17,27 +17,50 @@ The gem Thor is used for handling CLI operations like input parsing, some error 
 The database file is written as a fluent interface API/DSL where all commands are collected in an object from the CLI, and executed in a chain. 
 his allows the program to be easily extended with additional methods and features simply added to the method chain when called by the CLI. 
 
+
 ## Installation
-My Sqlite was built to run on Ruby 3.2.2 has been tested and verified to work with version 3.1.2 you may experience issues running it on earlier versions.
+**Prerequisites:**
+- Ruby 3.2.2 or later is required. It has been tested and verified to work with version 3.1.2, but you may experience issues running it on earlier versions.
 
-My Sqlite depends on bundler to install needed gems, to install bundler:
+**Step 1: Install Bundler**
 
-```gem install bundler```
+Before installing My Sqlite, you need to ensure you have Bundler installed. Bundler will be used to manage gem dependencies. If you don't have Bundler installed, you can do so with the following command:
 
-The Command-Line-Interface (CLI) requires the Thor gem which is included in the vendor/bundle directory and should install itself when program is launched
+```shell
+gem install bundler
+```
 
-To install and set up the My Sqlite tool, follow these steps:
+**Step 2: Clone the Repository**
 
-Download or clone the repository to your local machine.
-Open a terminal and navigate to the project directory.
-Run the CLI interface using the following command:
+Download or clone the My Sqlite repository to your local machine.
 
-```ruby my_sqlite_cli.rb```
+**Step 3: Navigate to the Project Directory**
 
-If you encounter issues use bundler execution instead:
+Open a terminal and navigate to the directory where you've downloaded or cloned the My Sqlite repository.
 
-```bundle exec ruby your_program.rb```
+**Step 4: Install Dependencies**
 
+In the project directory, run the following command to install the required gems specified in the Gemfile.lock:
+
+```shell
+bundle install
+```
+
+This will ensure that all necessary gems are installed, including the Thor gem, which is required for the Command-Line-Interface (CLI).
+
+**Step 5: Run the My Sqlite CLI**
+
+You can now run the CLI interface using the following command:
+
+```shell
+ruby my_sqlite_cli.rb
+```
+
+If you encounter any issues running the CLI, consider using bundler execution instead:
+
+```shell
+bundle exec ruby my_sqlite_cli.rb
+```
 
 ## Usage
 The My Sqlite CLI tool enables you to perform various operations on CSV files using SQL-like keywords. Here's how to use it:
@@ -112,46 +135,8 @@ If WHERE is not included in the command, all rows (including headers) will be de
 
 - DELETE FROM [File_name] WHERE [Column_name] [=,!=,>,<] [value]
 
-## TEST COMMANDS
-Here are some test commands that may be used to demonstrate the functionality of My Sqlite using the included csv demo files
-
-INSERT INTO nba_players.csv (Player, height, weight, born, birth_state) VALUES ('Victor Wembanyama', '224', '95', '2004', 'France')
-
-SELECT Player, born, birth_state FROM nba_players.csv WHERE born > 1995 ORDER born ASC
-
-DELETE FROM nba_players.csv WHERE Player = "Victor Wembanyama"
-
-SELECT Player, birth_date, born, collage, height FROM nba_players.csv JOIN nba_player_data.csv ON Player = name
-
-SELECT * FROM nba_players.csv WHERE born > 1996
-
-INSERT INTO nba_players.csv (Player, height, weight, born, birth_state) VALUES ('Victor Wembanyama', '224', '95', '2004', 'France')
-
-SELECT * FROM nba_players.csv WHERE born > 1996
-
-UPDATE nba_players.csv SET Player = "Test Player", born = 2004, birth_state = "New Mexico" WHERE Player = "Victor Wembanyama"
-
-SELECT * FROM nba_players.csv WHERE born > 1996
-
-DELETE FROM nba_players.csv WHERE Player = "Test Player"
-
-SELECT * FROM nba_players.csv WHERE born > 1996
-
-SELECT * FROM nba_players.csv JOIN nba_player_data.csv ON Player = name ORDER college ASC
-
-SELECT Player, position, birth_state FROM nba_players.csv JOIN nba_player_data.csv ON Player = name ORDER born DESC
-
-SELECT Player, born FROM nba_players.csv ORDER born DESC
-
-SELECT height, Player, born FROM nba_players.csv ORDER height DESC
-
-UPDATE nba_players.csv SET birth_city = "San Francisco", birth_state = CA WHERE Player = "Test Player"
-
-
 ### The Core Team
-Septime Champenois
-
-Christopher Deetz
+Septime Champenois & Christopher Deetz
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
 <span><img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px'></span>
