@@ -82,7 +82,7 @@ To quit the CLI use “quit”
 
 About My Sqlite command keywords generally:
 Keywords in My Sqlite are case sensitive - commands should be placed in all CAPS
-CLI inputs are space-separated, so when entering values that have multiple words, you must enclose them in single ‘’ or double “” quotes
+CLI inputs are space-separated, so when entering values that have multiple words, you must enclose them in 'single' or "double" quotes
 
 *******
 
